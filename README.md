@@ -1,4 +1,4 @@
-# FormatRadio
+# Format Radio
 
 ## Helping you get sound packs into your Radio Music
 
@@ -44,7 +44,7 @@ The file **config.json** configures a few things. More documentation to follow.
 * **mode** determines how files are spread across folders and multiple volumes (large sample packs with more than 330 files can span multiple cards)
 	* **spreadAcrossBanks** spreads all the files from a sample pack evenly across the banks (330 at the most), this is mostly useful with less than 330 files.
 	* **spreadAcrossVolumes** spreads all the files from a sample pack evenly across the number of volumes required - this should give you the best overall result for large banks.
-	* **maxCapacity** uses 75 samples per folder and fills each volume to the brim (16 folders, 330 files max). This fills up everything as dense as possible, you might up with an almost empty last volume though.
+	* **maxCapacity** uses 75 samples per folder and fills each volume to the brim (16 folders, 330 files max). This fills up everything as dense as possible, you might end up with an almost empty last volume though.
 	* **voltOctish** uses 60 samples per folder - with CV between 0..+5V we might be able to select a sample per semitone. Untested, possibly even unfounded.
 
 
@@ -60,4 +60,4 @@ The file **data.json** lists the sample packs. Basically, this is a list of URLs
 * [I simply followed this article to get up and running with Python and pip](http://www.dabapps.com/blog/introduction-to-pip-and-virtualenv-python/)
 * More info to follow...
 
-## 
+##
