@@ -1,0 +1,8 @@
+{
+    "rootFolder": "./output/",
+    "maxFilesPerVolume": 330,
+    "maxFolders": 16,
+    "maxFilesPerFolder": 75,
+    "overwriteConvertedFiles": true,
+    "mode": "spreadAcrossVolumes"
+}

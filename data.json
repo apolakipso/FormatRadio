@@ -1,0 +1,317 @@
+{
+
+    "sets": [
+        {
+            "key": "13-dnb-fx",
+            "name": "100 free drum 'n' bass FX samples",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-dnb-fx-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/13"
+        },
+        {
+            "key": "07-real-world-fx",
+            "name": "286 free real-world FX samples (365MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-real-world-fx-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/7"
+        },
+        {
+            "key": "09-vince-watson",
+            "name": "45 free Vince Watson samples (74MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-vince-watson-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/9"
+        },
+        {
+            "key": "10-feedback",
+            "name": "171 free feedback samples (89MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-feedback-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/10"
+        },
+        {
+            "key": "11-experimental",
+            "name": "100 free experimental samples (321MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-experimental-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/11"
+        },
+        {
+            "key": "06-bomb-squad",
+            "name": "50 free Bomb Squad samples (86MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-bomb-squad-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/6"
+        },
+        {
+            "key": "12-dnb-pads",
+            "name": "130 free drum 'n' bass pad samples (417MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-dnb-pad-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/12"
+        },
+        {
+            "key": "14-dnb-atmospheres",
+            "name": "100 free drum'n'bass atmosphere samples (523MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-dnb-atmospheres.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/14"
+        },
+        {
+            "key": "18-robotic-synthpop",
+            "name": "713 free robotic synthpop samples (185MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-robotic-synthpop-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/18"
+        },
+        {
+            "key": "19-chunky",
+            "name": "437 free chunky guitar and drum samples (191MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-chunky-guitar-drum-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/19"
+        },
+        {
+            "key": "20-ambient",
+            "name": "382 free ambient samples (502MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-ambient-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/20"
+        },
+        {
+            "key": "21-soul-funk",
+            "name": "393 free soul and funk samples (213MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-soul-funk-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/21"
+        },
+        {
+            "key": "24-acoustic-guitar",
+            "name": "266 free acoustic guitar samples (406MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-acoustic-guitar-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/24"
+        },
+        {
+            "key": "26-old-school-rave",
+            "name": "318 free old-school rave samples (108MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-rave-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/26"
+        },
+        {
+            "key": "27-dnb-breaks",
+            "name": "200 free drum 'n' bass breaks samples (110MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-dnb-breaks-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/27"
+        },
+        {
+            "key": "29-dark-dub",
+            "name": "358 free dark dub samples (379MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-dark-dub-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/29"
+        },
+        {
+            "key": "32-jazz-club",
+            "name": "466 free jazz club samples (460MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-jazz-club-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/32"
+        },
+        {
+            "key": "34-fx",
+            "name": "338 free FX samples (453MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-effect-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/34"
+        },
+        {
+            "key": "41-female-vocal",
+            "name": "1,338 free female vocal samples (426MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-female-vocal-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/41"
+        },
+        {
+            "key": "47-twisted-orchestra",
+            "name": "300 free twisted orchestra samples (472MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-twisted-orchestra-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/47"
+        },
+        {
+            "key": "48-movie-soundtrack",
+            "name": "483 free movie soundtrack samples (298MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-soundtrack-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/48"
+        },
+        {
+            "key": "59-fx-sweetener-1",
+            "name": "395 free FX and sweetener samples (FX, 263MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-fx-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/59"
+        },
+        {
+            "key": "59-fx-sweetener-2",
+            "name": "395 free FX and sweetener samples (Sweeteners, 332MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-sweetener-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/59"
+        },
+        {
+            "key": "61-retro-degraded",
+            "name": "546 free retro and degraded samples (312MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-retro-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/61"
+        },
+        {
+            "key": "64-criminal-damage",
+            "name": "1,007 free criminal damage samples (865MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-criminal-damage-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/64"
+        },
+        {
+            "key": "68-lo-fi",
+            "name": "587 free lo-fi samples (168MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-lofi-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/68"
+        },
+        {
+            "key": "70-classic-synth",
+            "name": "976 free classic synth samples (287MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-synth-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/70"
+        },
+        {
+            "key": "71-atmospheric-1",
+            "name": "462 free atmospheric samples (Part 1, 358MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-atmospheric-samples-1.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/71"
+        },
+        {
+            "key": "71-atmospheric-2",
+            "name": "462 free atmospheric samples (Part 2, 348MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-atmospheric-samples-2.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/71"
+        },
+        {
+            "key": "80-lounge",
+            "name": "166 free lounge samples (230MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-lounge-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/80"
+        },
+        {
+            "key": "84-hand-control",
+            "name": "300 free hand control samples (411MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-hand-control-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/84"
+        },
+        {
+            "key": "86-industrial",
+            "name": "500 free industrial samples (466MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-industrial-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/86"
+        },
+        {
+            "key": "87-chillout",
+            "name": "352 free chillout samples (189MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-chillout-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/87"
+        },
+        {
+            "key": "93-techno-atmosphere",
+            "name": "441 free techno atmosphere samples (560MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-techno-atmos-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/93"
+        },
+        {
+            "key": "97-modular-synth",
+            "name": "250 free modular synth samples (209MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-modular-synth-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/97"
+        },
+        {
+            "key": "99-found-sound",
+            "name": "398 free found sound samples (221MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-found-sound-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/99"
+        },
+        {
+            "key": "101-industrial-metal",
+            "name": "152 free industrial metal samples (84MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-industrial-metal-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/101"
+        },
+        {
+            "key": "105-world-music",
+            "name": "204 free world music samples (72MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-world-music-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/105"
+        },
+        {
+            "key": "114-out-there-fx",
+            "name": "464 free out there FX samples (287MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-out-there-fx-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/114"
+        },
+        {
+            "key": "115-experimental-lead",
+            "name": "200 free experimental lead samples (335MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-experimental-lead-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/115"
+        },
+        {
+            "key": "118-vocal-ad-lib",
+            "name": "327 free vocal ad-lib samples (237MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-vocal-adlib-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/118"
+        },
+        {
+            "key": "119-ambient-allsort",
+            "name": "195 free ambient allsort samples (486MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-ambient-allsort-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/119"
+        },
+        {
+            "key": "121-domestic-appliances",
+            "name": "545 free domestic appliance samples (509MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-domestic-appliance-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/121"
+        },
+        {
+            "key": "124-pure-evil",
+            "name": "225 free pure evil samples (148MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-pure-evil-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/124"
+        },
+        {
+            "key": "128-robots",
+            "name": "586 free rise of the robots samples (493MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-robot-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/128"
+        },
+        {
+            "key": "129-tuneful-toy",
+            "name": "592 free tuneful toy samples (150MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-tuneful-toy-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/129"
+        },
+        {
+            "key": "134-modular-madness",
+            "name": "204 free modular madness samples (142MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-modular-madness-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/134"
+        },
+        {
+            "key": "138-noise-hiss-crackle",
+            "name": "502 free noise, hiss and crackle samples (263MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-noise-hiss-crackle-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/138"
+        },
+        {
+            "key": "139-crate-diggers",
+            "name": "475 free crate digger's samples (292MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-crate-digger-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/139"
+        },
+        {
+            "key": "140-horrorscape",
+            "name": "196 free horrorscape samples (210MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-horrorscape-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/140"
+        },
+        {
+            "key": "142-undercover",
+            "name": "300 free undercover samples (313MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-undercover-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/142"
+        },
+        {
+            "key": "143-alarm-siren",
+            "name": "363 free alarm and siren samples (422MB)",
+            "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-alarm-siren-samples.zip",
+            "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/143"
+        }
+    ]
+}
