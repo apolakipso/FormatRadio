@@ -10,7 +10,7 @@ This is a small command line tool written in Python that prepares sound packs fo
 
 * Downloads sound packs from a configurable ["repository"](data.json), currently stocked with a selection of [packs from Music Radar](http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/)
 * Converts WAV files to RAW (according to [RadioMusic specs](https://github.com/TomWhitwell/RadioMusic/wiki/SD-Card%3A-Format-%26-File-Structure#setting-up-files-on-the-micro-sd-card))
-* Renames files to ensure 8.3 names
+* Renames files to ensure 8.3 names (no clever shortening, just sequential naming of the files)
 * Creates compatible folder structure (16 folders with 75 files max, no more than 330 files in total)
 * Splits sound packs with more files across multiple *volumes*, ie multiple SD cards.
 
@@ -34,7 +34,7 @@ Enter the number of the sample pack you want to create.
 Once done, the tool will open the folder containing all the volumes created from the sample pack.
 
 ## Configuration
-The file **config.json** configures a few things. More documentation to follow.
+The file [config.json](config.json) configures a few things. More documentation to follow.
 
 * **rootFolder** sets the path where files are created
 * **maxFilesPerVolume** sets the maximum number of files the Radio Music module can handle (on a single SD card)
@@ -50,7 +50,7 @@ The file **config.json** configures a few things. More documentation to follow.
 
 ## Sample Pack Repository
 
-The file **data.json** lists the sample packs. Basically, this is a list of URLs to ZIP files containing WAV files. More documentation to follow.
+The file [data.json](data.json) lists the sample packs. Basically, this is a list of URLs to ZIP files containing WAV files. More documentation to follow.
 
 ## Requirements & Installation
 
@@ -60,4 +60,12 @@ The file **data.json** lists the sample packs. Basically, this is a list of URLs
 * [I simply followed this article to get up and running with Python and pip](http://www.dabapps.com/blog/introduction-to-pip-and-virtualenv-python/)
 * More info to follow...
 
-##
+## Roadmap
+
+* Test installation on a fresh machine
+* Complete documentation
+* Remove OS specific stuff like os.system('open') (I'm guessing here that this won't work on Win machines)
+* Clean up command line output
+* Add download progress info, check whether pywget is better suited than urllib2
+* Flesh out menus, allow selection of local folder instead of a repo entry
+* Generate [settings.txt](https://github.com/TomWhitwell/RadioMusic/wiki/Customise-your-module%3A-Editing-settings.txt) from one of several profiles to go with the sound pack - helpful for one-shot sound packs etc.
