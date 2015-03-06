@@ -107,7 +107,7 @@ def main():
     name = s['name']
     key = s['key']
     sourceFolder = rootFolder + key + "/source"
-    targetFolder = rootFolder + key + "/target"
+    targetFolder = rootFolder + key # + "/target"
     archive = "%s/%s.zip" % (sourceFolder, key)
 
     if not os.path.isdir(sourceFolder):
