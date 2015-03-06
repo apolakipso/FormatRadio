@@ -76,6 +76,10 @@ def getPath(targetFolder, key, currentVolume, currentFolder):
 
 def main():
     config = loadConfig('config.json')
+    profile = 'default'
+    # @see http://stackoverflow.com/a/26853961
+    settings = config['profiles']['default'].copy()
+    settings.update(config['profiles'][profile])
     rootFolder = config['rootFolder']
     maxFilesPerVolume = config['maxFilesPerVolume']
     maxFolders = config['maxFolders']
