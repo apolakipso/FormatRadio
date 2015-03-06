@@ -5,8 +5,9 @@
     "maxFilesPerFolder": 75,
     "overwriteConvertedFiles": true,
     "mode": "spreadAcrossVolumes",
-    "profiles": {
-        "default": {
+    "profiles": [
+        {
+            "_name": "default",
             "MUTE": 0,
             "DECLICK": 15,
             "ShowMeter": 1,
@@ -18,14 +19,16 @@
             "StartCVDivider": 2,
             "Looping": 1
         },
-        "oneshots": {
+        {
+            "_name": "oneshots",
             "StartCVDivider": 1,
             "Looping": 0
         },
-        "immediate": {
+        {
+            "_name": "immediate",
             "StartPotImmediate": 1,
             "StartCVImmediate": 1,
             "StartCVDivider": 1
         }
-    }
+    ]
 }
