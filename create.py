@@ -200,6 +200,8 @@ def main():
     #for i in range(0, currentVolume + 1):
     #    os.system('du -hcs %s/%s-%d' % (targetFolder, key, i))
 
+    # clean up
+    os.system('rm -rf %s' % sourceFolder)
     os.system('open %s' % targetFolder)
 
 if __name__ == '__main__':
