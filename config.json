@@ -4,5 +4,28 @@
     "maxFolders": 16,
     "maxFilesPerFolder": 75,
     "overwriteConvertedFiles": true,
-    "mode": "spreadAcrossVolumes"
+    "mode": "spreadAcrossVolumes",
+    "profiles": {
+        "default": {
+            "MUTE": 0,
+            "DECLICK": 15,
+            "ShowMeter": 1,
+            "meterHIDE": 2000,
+            "ChanPotImmediate": 1,
+            "ChanCVImmediate": 1,
+            "StartPotImmediate": 0,
+            "StartCVImmediate": 0,
+            "StartCVDivider": 2,
+            "Looping": 1
+        },
+        "oneshots": {
+            "StartCVDivider": 1,
+            "Looping": 0
+        },
+        "immediate": {
+            "StartPotImmediate": 1,
+            "StartCVImmediate": 1,
+            "StartCVDivider": 1
+        }
+    }
 }
