@@ -45,9 +45,7 @@ def findFiles(path):
     matches = []
     for root, dirnames, filenames in os.walk(path):
         for filename in fnmatch.filter(filenames, '*.wav'):
-            p = os.path.join(root, filename)
-            if (not '__MACOSX/' in p):
-                matches.append(p)
+            matches.append(os.path.join(root, filename))
     return matches
 
 def printStatus(s):
