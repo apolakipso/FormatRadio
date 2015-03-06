@@ -253,8 +253,8 @@ def main():
     #    os.system('du -hcs %s/%s-%d' % (targetFolder, key, i))
 
     # clean up
-    os.system('rm -rf %s' % sourceFolder)
-    os.system('open %s' % targetFolder)
+    #os.system('rm -rf %s' % sourceFolder)
+    
 
 if __name__ == '__main__':
     main()
