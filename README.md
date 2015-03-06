@@ -64,8 +64,4 @@ The file [data.json](data.json) lists the sample packs. Basically, this is a lis
 
 * Test installation on a fresh machine
 * Complete documentation
-* Remove OS specific stuff like os.system('open') (I'm guessing here that this won't work on Win machines)
-* Clean up command line output
 * Add download progress info, check whether pywget is better suited than urllib2
-* Flesh out menus, allow selection of local folder instead of a repo entry
-* Generate [settings.txt](https://github.com/TomWhitwell/RadioMusic/wiki/Customise-your-module%3A-Editing-settings.txt) from one of several profiles to go with the sound pack - helpful for one-shot sound packs etc.
