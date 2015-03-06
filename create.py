@@ -50,9 +50,13 @@ def findFiles(path):
                 matches.append(p)
     return matches
 
+def hr():
+    print '#' * 80
+
 def printStatus(s):
-    hr = '#' * 80 + '\n'
-    print '%s%s\n%s' % (hr, s, hr)
+    hr()
+    print s
+    hr()
 
 def printStep(s):
     print '>>> %s' % s
