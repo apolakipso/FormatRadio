@@ -127,6 +127,12 @@ def getSet(sets):
         exit('Invalid set "%d"' % n)
         return
     return sets[n]
+
+def writeSettings(path, settings):
+    with open(path + 'settings.txt', 'w') as f:
+        for k, v in settings.iteritems():
+            f.write('{}={}\n'.format(k, v))
+
 def exit(s):
     sys.exit(s)
 
@@ -181,6 +187,7 @@ def main():
     currentFile = 0
     numFiles = 0
     path = getPath(targetFolder, key, currentVolume, currentFolder)
+    writeSettings("%s/%s-%d/" % (targetFolder, key, currentVolume), settings)
 
     printStep('Set contains %d files' % filesInSet)
     printStep('Mode: %s' % mode)
@@ -225,6 +232,8 @@ def main():
                 currentFile = 0
 
                 path = getPath(targetFolder, key, currentVolume, currentFolder)
+                writeSettings("%s/%s-%d/" % (targetFolder, key, currentVolume), settings)
+
 
         else:
             currentFile = 0
@@ -237,7 +246,7 @@ def main():
                 currentFile = 0
 
             path = getPath(targetFolder, key, currentVolume, currentFolder)
-
+            writeSettings("%s/%s-%d/" % (targetFolder, key, currentVolume), settings)
 
     printStatus('Created %d volumes here: %s' % (currentVolume + 1, targetFolder))
     #for i in range(0, currentVolume + 1):
