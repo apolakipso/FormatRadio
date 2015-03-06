@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import json
 import os
-#import re
+import sys
 import urllib2
 import zipfile
 import fnmatch
@@ -73,6 +73,9 @@ def getPath(targetFolder, key, currentVolume, currentFolder):
     if not os.path.isdir(path):
         os.system("mkdir -p %s" % path)
     return path
+
+def exit(s):
+    sys.exit(s)
 
 def main():
     config = loadConfig('config.json')
