@@ -255,6 +255,8 @@ def main():
     # clean up
     #os.system('rm -rf %s' % sourceFolder)
     
+    if (os.name == 'mac'):
+        os.system('open %s' % targetFolder)
 
 if __name__ == '__main__':
     main()
