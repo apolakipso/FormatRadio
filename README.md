@@ -64,12 +64,12 @@ Once done, the tool will open the folder containing all the volumes created from
 ## Configuration
 The file [config.json](config.json) configures a few things. More documentation to follow.
 
-* **rootFolder** sets the path where files are created
-* **maxFilesPerVolume** sets the maximum number of files the Radio Music module can handle (on a single SD card)
-* **maxFolders** sets the maximum number of folders the Radio Music module can handle
-* **maxFilesPerFolder** sets the maximum number of files per folder the Radio Music can handle
-* **overwriteConvertedFiles** determines whether ffmpeg is instructed to overwrite existing (RAW) files when converting
-* **mode** determines how files are spread across folders and multiple volumes (large sample packs with more than 330 files can span multiple cards)
+* **rootFolder** sets the path where files are created. *Default: "./output/"*
+* **maxFilesPerVolume** sets the maximum number of files the Radio Music module can handle (on a single SD card). *Default: 330*
+* **maxFolders** sets the maximum number of folders the Radio Music module can handle. *Default: 16*
+* **maxFilesPerFolder** sets the maximum number of files per folder the Radio Music can handle. *Default: 75*
+* **overwriteConvertedFiles** determines whether ffmpeg is instructed to overwrite existing (RAW) files when converting. *Default: true*
+* **mode** determines how files are spread across folders and multiple volumes (large sample packs with more than 330 files can span multiple cards). *Default: "spreadAcrossVolumes"*
 	* **spreadAcrossBanks** spreads all the files from a sample pack evenly across the banks (330 at the most), this is mostly useful with less than 330 files.
 	* **spreadAcrossVolumes** spreads all the files from a sample pack evenly across the number of volumes required - this should give you the best overall result for large banks.
 	* **maxCapacity** uses 75 samples per folder and fills each volume to the brim (16 folders, 330 files max). This fills up everything as dense as possible, you might end up with an almost empty last volume though.
