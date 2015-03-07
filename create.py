@@ -7,7 +7,6 @@ import zipfile
 import fnmatch
 from urllib2 import urlopen, URLError, HTTPError
 
-
 # @see http://stackoverflow.com/a/12886818
 def unzip(source_filename, dest_dir):
     with zipfile.ZipFile(source_filename) as zf:
@@ -254,7 +253,7 @@ def main():
 
     # clean up
     #os.system('rm -rf %s' % sourceFolder)
-    
+
     if (os.name == 'mac'):
         os.system('open %s' % targetFolder)
 
