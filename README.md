@@ -9,7 +9,7 @@ This is a small command line tool written in Python that prepares sound packs fo
 ### What it does
 
 * Downloads sound packs from a configurable ["repository"](data.json), currently stocked with a selection of [packs from Music Radar](http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/)
-* Converts WAV files to RAW (according to [RadioMusic specs](https://github.com/TomWhitwell/RadioMusic/wiki/SD-Card%3A-Format-%26-File-Structure#setting-up-files-on-the-micro-sd-card))
+* Converts WAV files to RAW (according to [Radio Music specs](https://github.com/TomWhitwell/RadioMusic/wiki/SD-Card%3A-Format-%26-File-Structure#setting-up-files-on-the-micro-sd-card))
 * Renames files to ensure 8.3 names (no clever shortening, just sequential naming of the files)
 * Creates compatible folder structure (16 folders with 75 files max, no more than 330 files in total)
 * Splits sound packs with more files across multiple volumes, ie multiple SD cards.
@@ -20,10 +20,21 @@ The Radio Music plays mono files and SD cards are cheap, so the actual size of t
 
 The tool doesn't have anything to do with the SD cards themselves, it merely creates a ``settings.txt``, files and folders for you to copy onto a card.
 
-## Usage
+## Requirements
 
-Run it from the command line:
-`$ ./create.py`
+* [Python](https://www.python.org/downloads/release/python-279/) (already available if you're on OS X 10.8+)
+* [ffmpeg](https://www.ffmpeg.org/download.html)
+
+## Installation
+
+* [Download the ZIP](https://github.com/apolakipso/FormatRadio/archive/master.zip) and extract it to a folder
+* Open a terminal and change into that folder
+* Run the script with Python
+
+```bash
+$ cd ~/Downloads/FormatRadio-master/	# wherever you unzipped the files
+$ python create.py						# run script
+```
 
 ### Select Profile
 Select a profile, this defines settings for the module (see the **profiles** key in [config.json](config.json)). All profiles are based on the **default** profile, so you only need to specify settings that deviate from the default settings.
@@ -67,18 +78,30 @@ The file [config.json](config.json) configures a few things. More documentation 
 
 ## Sample Pack Repository
 
-The file [data.json](data.json) lists the sample packs. Basically, this is a list of URLs to ZIP files containing WAV files. More documentation to follow.
+The file [data.json](data.json) lists the sample packs. Basically, this is a list of URLs to ZIP files containing WAV files.
 
-## Requirements & Installation
+A sample pack is defined by the following properties:
 
-* Currently tested on OS X only
-* [Python](https://www.python.org/downloads/release/python-279/)
-* [ffmpeg](https://www.ffmpeg.org/download.html) (the conversion bit can probably be changed to use [SoX](sox.sourceforge.net) quite easily)
+* **key** folder names will be derived from this, must be a valid folder name
+* **name** the name of the sample pack as it will be displayed in the selection list
+* **url** URL of the zip file to download
+* **source** optional URL for the sample pack's website (not used anywhere yet)
 
+```json
+{
+	"key": "29-dark-dub",
+	"name": "358 free dark dub samples (379MB)",
+	"url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-dark-dub-samples.zip",
+	"source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/29"
+}
+```
 ## Roadmap
 
-* Test installation on a fresh machine
-* Complete documentation
-* Add download progress info, check whether pywget is better suited than urllib2
 * Allow selection of local folder instead of a repo entry
+* Add download progress info, check whether pywget is better suited than urllib2
 * Fix wording, is it a sound pack, a sound set, or what?
+
+## Notes
+
+* This has currently been tested on OS X only
+* The script uses ffmpeg to convert WAV to RAW files, this can probably be changed to use [SoX](sox.sourceforge.net) quite easily
