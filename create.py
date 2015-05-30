@@ -97,16 +97,18 @@ def getInput():
         return None
     return n
 
-def getSettings(config):
-    profiles = config['profiles']
+def selectProfile(profiles):
     printProfileMenu(profiles)
-
     n = getInput()
     if not n in range(0, len(profiles)):
         exit('Invalid profile "%d"' % n)
         return
+    return n
 
-    # Yes, well...
+def getProfile(profiles, whichProfile):
+    if (whichProfile == None):
+        whichProfile = getProfile(profiles)
+
     defaultProfile = profiles[0]
     for p in profiles:
         if p['_name'] == 'default':
@@ -114,18 +116,23 @@ def getSettings(config):
             break
 
     # @see http://stackoverflow.com/a/26853961
-    settings = defaultProfile.copy()
-    settings.update(profiles[n])
-    del settings['_name']
-    return settings
+    profile = defaultProfile.copy()
+    profile.update(profiles[whichProfile])
+    del profile['_name']
+    return profile
 
-def getSet(sets):
+def selectSet(sets):
     printSetMenu(sets)
     n = getInput()
     if not n in range(0, len(sets)):
         exit('Invalid set "%d"' % n)
         return
-    return sets[n]
+    return n
+
+def getSet(sets, whichSet):
+    if (whichSet == None):
+        whichSet = selectSet(sets)
+    return sets[whichSet]
 
 def writeSettings(path, settings):
     with open(path + 'settings.txt', 'w') as f:
@@ -137,8 +144,9 @@ def exit(s):
 
 def main():
     config = loadConfig('config.json')
+    profiles = config['profiles']
 
-    settings = getSettings(config)
+    settings = getProfile(profiles, int(sys.argv[1]) if len(sys.argv) > 1 else None)
 
     rootFolder = config['rootFolder']
     maxFilesPerVolume = config['maxFilesPerVolume']
@@ -150,7 +158,7 @@ def main():
     # load set data
     sets = json.loads(open('data.json').read())['sets']
     # select a set
-    s = getSet(sets)
+    s = getSet(sets, int(sys.argv[2]) if len(sys.argv) > 2 else None)
 
     url = s['url']
     name = s['name']
