@@ -311,6 +311,12 @@
             "name": "363 free alarm and siren samples (422MB)",
             "url": "http://cdn.mos.musicradar.com/audio/samples/musicradar-alarm-siren-samples.zip",
             "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/143"
+        },
+        {
+            "key": "answer-phone",
+            "name": "Answer Phone Card 1 (1.4GB)",
+            "url": "http://www.oomst.com/thonk/3rd-Party/AnswerPhoneCard1.zip",
+            "source": "http://answer-phone.org/"
         }
     ]
 }
