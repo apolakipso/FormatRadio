@@ -313,12 +313,12 @@
             "source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/143"
         },
         {
-            "key": "answer-phone",
-            "name": "Answer Phone Card 1 (1.4GB)",
-            "url": "http://www.oomst.com/thonk/3rd-Party/AnswerPhoneCard1.zip",
-            "source": "http://answer-phone.org/",
-            "path": "/OrganizedCard/",
-            "mode": "convertOnly"
+            "key": "answer-phone-tumblr",
+        	"name": "191 Answering Machine Recordings (1.4GB)",
+        	"url": "http://www.oomst.com/thonk/3rd-Party/AnswerPhoneCard1.zip",
+        	"source": "http://answerphone.tumblr.com",
+        	"path": "/OrganizedCard/",
+        	"mode": "convertOnly"
         }
     ]
 }
