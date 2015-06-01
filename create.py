@@ -101,9 +101,9 @@ def selectProfile(profiles):
         return
     return n
 
-def getProfile(profiles, whichProfile):
+def getProfile(profiles, whichProfile = None):
     if (whichProfile == None):
-        whichProfile = getProfile(profiles)
+        whichProfile = selectProfile(profiles)
 
     defaultProfile = profiles[0]
     for p in profiles:
