@@ -7,6 +7,10 @@ import zipfile
 import fnmatch
 from urllib2 import urlopen, URLError, HTTPError
 
+EXT_RAW = '.RAW'
+EXT_WAV = '.WAV'
+SETTINGS_FILE = 'settings.txt'
+
 # @see http://stackoverflow.com/a/12886818
 def unzip(source_filename, dest_dir):
     # @note path traversal vulnerability in extractall has been fixed as of Python 2.7.4
@@ -30,13 +34,15 @@ def dlfile(url, filename = ''):
         print "URL Error:", e.reason, url
 
 # @see http://stackoverflow.com/a/2186565
-def findFiles(path):
+def findFiles(path, extensions):
     matches = []
-    for root, dirnames, filenames in os.walk(path):
-        for filename in fnmatch.filter(filenames, '*.wav'):
-            p = os.path.join(root, filename)
-            if (not '__MACOSX/' in p):
-                matches.append(p)
+    for root, dirnames, filenames in os.walk(path, topdown = False):
+        for filename in filenames:
+            name, ext = os.path.splitext(filename)
+            if (ext.upper() in extensions):
+                p = os.path.join(root, filename)
+                if (not '__MACOSX/' in p):
+                    matches.append(p)
     return matches
 
 def hr():
@@ -125,12 +131,25 @@ def getSet(sets, whichSet):
     return sets[whichSet]
 
 def writeSettings(path, settings):
-    with open(path + 'settings.txt', 'w') as f:
+    with open(path, 'w') as f:
         for k, v in settings.iteritems():
             f.write('{}={}\n'.format(k, v))
 
 def exit(s):
     sys.exit(s)
+
+def convertFile(sourceFile, targetFile, overwrite):
+    cmd = "ffmpeg -i '%s' %s -f s16le -ac 1 -loglevel error -stats -ar 44100 -acodec pcm_s16le '%s'" % (
+        sourceFile,
+        '-y' if overwrite else '',
+        targetFile
+    )
+    print cmd
+    os.system(cmd)
+
+def setExtension(filename, extension):
+    name, ext = os.path.splitext(filename)
+    return name + extension
 
 def main():
     config = loadConfig('config.json')
@@ -176,18 +195,60 @@ def main():
     printStep('Unzipping "%s"' % archive)
     unzip(archive, sourceFolder)
 
-    files = findFiles(sourceFolder)
+    if 'mode' in s:
+        mode = s['mode']
 
+    printStep('Mode: %s' % mode)
+
+    # Hacky interlude if we just need to copy and convert the files
+    # while keeping the folder structure as is
+    if mode == 'convertOnly':
+        # check source
+        sourcePath = sourceFolder + (s['path'] if 'path' in s else '')
+        # if not sourcePath.endswith('/'): sourcePath += '/'
+        if not os.path.isdir(sourcePath):
+            exit("Source path is invalid: %s" % sourcePath)
+
+        # create target
+        targetFolder = "%s/%s/" % (targetFolder, key)
+        os.system("mkdir -p %s" % targetFolder)
+
+        # copy source files
+        cmd = "cp -PR %s %s" % (sourcePath, targetFolder)
+        os.system(cmd)
+
+        if not os.path.isfile(targetFolder + SETTINGS_FILE):
+            # write settings
+            printStep('Writing settings: %s' % targetFolder + SETTINGS_FILE)
+            writeSettings(targetFolder + SETTINGS_FILE, settings)
+        else:
+            printStep('Keeping settings contained in archive')
+
+        files = findFiles(targetFolder, [EXT_WAV])
+
+        if len(files) > 0:
+            printStep('Converting WAV files')
+            # convert raw files and delete copied sources
+            for sourceFile in files:
+                targetFile = setExtension(sourceFile, EXT_RAW)
+                convertFile(sourceFile, targetFile, True)
+                cmd = "rm '%s'" % sourceFile
+                os.system(cmd)
+        print
+        printStep('Done.')
+        return
+
+    files = findFiles(sourceFolder, [EXT_RAW, EXT_WAV])
     filesInSet = len(files)
     currentVolume = 0
     currentFolder = 0
     currentFile = 0
     numFiles = 0
-    path = getPath(targetFolder, key, currentVolume, currentFolder)
-    writeSettings("%s/%s-%d/" % (targetFolder, key, currentVolume), settings)
 
     printStep('Set contains %d files' % filesInSet)
-    printStep('Mode: %s' % mode)
+
+    writeSettings("%s/%s-%d/%s" % (targetFolder, key, currentVolume, SETTINGS_FILE), settings)
+    path = getPath(targetFolder, key, currentVolume, currentFolder)
 
     if mode == 'spreadAcrossVolumes':
         numVolumes = (filesInSet // maxFilesPerVolume) + 1
@@ -207,17 +268,21 @@ def main():
         if currentFile < maxFilesPerFolder:
             baseName = os.path.basename(f)
             targetFile = "%s/%d.raw" % (path, currentFile)
-            # convert to targetFolder
-            cmd = "ffmpeg -i '%s' %s -f s16le -ac 1 -loglevel error -stats -ar 44100 -acodec pcm_s16le '%s'" % (
-                f,
-                '-y' if overwriteConvertedFiles else '',
-                targetFile
-            )
-            dry = False
-            if not dry:
-                os.system(cmd)
+            name, ext = os.path.splitext(f)
+
+            if (ext.upper() == EXT_WAV):
+                # WAV file, convert
+                convertFile(f, targetFile, overwriteConvertedFiles)
+                # cmd = ["ffmpeg", "-i", pipes.quote(f), '-loglevel', 'quiet', '-y' if overwriteConvertedFiles else '', "-f", "s16le", "-ac", "1", "-ar", "44100", "-acodec", "pcm_s16le",  pipes.quote(targetFile)]
+                # r = subprocess.call(cmd, shell=False)
+                # if (r != 0):
+                #     printStep("Error converting file %s" % f)
+                #     break
+
             else:
-                printStep(targetFile)
+                # RAW file, just copy
+                cmd = "cp '%s' '%s'" % (f, targetFile)
+                os.system(cmd)
 
             currentFile += 1
             numFiles += 1
@@ -227,10 +292,8 @@ def main():
                 currentVolume += 1
                 currentFolder = 0
                 currentFile = 0
-
                 path = getPath(targetFolder, key, currentVolume, currentFolder)
                 writeSettings("%s/%s-%d/" % (targetFolder, key, currentVolume), settings)
-
 
         else:
             currentFile = 0
