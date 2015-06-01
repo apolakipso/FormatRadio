@@ -70,6 +70,7 @@ The file [config.json](config.json) configures a few things. More documentation 
 * **maxFilesPerFolder** sets the maximum number of files per folder the Radio Music can handle. *Default: 75*
 * **overwriteConvertedFiles** determines whether ffmpeg is instructed to overwrite existing (RAW) files when converting. *Default: true*
 * **mode** determines how files are spread across folders and multiple volumes (large sample packs with more than 330 files can span multiple cards). *Default: "spreadAcrossVolumes"*
+	* **convertOnly** keeps the folder structure of the sample pack, files are only copied, RAW files are converted to WAV. Settings are only written if the pack doesn't already contains a ``settings.txt`` file.
 	* **spreadAcrossBanks** spreads all the files from a sample pack evenly across the banks (330 at the most), this is mostly useful with less than 330 files.
 	* **spreadAcrossVolumes** spreads all the files from a sample pack evenly across the number of volumes required - this should give you the best overall result for large banks.
 	* **maxCapacity** uses 75 samples per folder and fills each volume to the brim (16 folders, 330 files max). This fills up everything as dense as possible, you might end up with an almost empty last volume though.
@@ -86,6 +87,12 @@ A sample pack is defined by the following properties:
 * **name** the name of the sample pack as it will be displayed in the selection list
 * **url** URL of the zip file to download
 * **source** optional URL for the sample pack's website (not used anywhere yet)
+* **mode** Allows overriding the mode set in the profile, set to ``convertOnly`` for sample packs you only want to convert without changing the folder structure.
+* **path** specifies the path to the numbered sample folders within the archive, this is treated as the root folder of the sample pack.
+
+### Example 1: Regular *Music Radar* archive
+
+This is a regular zip file containing samples, the selected profile will determine how these are organized.
 
 ```json
 {
@@ -95,6 +102,23 @@ A sample pack is defined by the following properties:
 	"source": "http://www.musicradar.com/news/tech/free-music-samples-download-loops-hits-and-multis-217833/29"
 }
 ```
+
+### Example 2: Pre-organized *Answer Phone* archive
+
+This is a zip file containing a curated collection of sounds - the app will keep the folder structure intact but convert WAV files to RAW.
+
+```json
+{
+	"key": "answer-phone-tumblr",
+	"name": "191 Answering Machine Recordings (1.4GB)",
+	"url": "http://www.oomst.com/thonk/3rd-Party/AnswerPhoneCard1.zip",
+	"source": "http://answerphone.tumblr.com",
+	"path": "/OrganizedCard/",
+	"mode": "convertOnly"
+}
+```
+*Note: In this particular case all the files are RAW already.*
+
 ## Roadmap
 
 * Allow selection of local folder instead of a repo entry
