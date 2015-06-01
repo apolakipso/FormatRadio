@@ -9,18 +9,8 @@ from urllib2 import urlopen, URLError, HTTPError
 
 # @see http://stackoverflow.com/a/12886818
 def unzip(source_filename, dest_dir):
-    with zipfile.ZipFile(source_filename) as zf:
-        for member in zf.infolist():
-            # Path traversal defense copied from
-            # http://hg.python.org/cpython/file/tip/Lib/http/server.py#l789
-            words = member.filename.split('/')
-            path = dest_dir
-            for word in words[:-1]:
-                drive, word = os.path.splitdrive(word)
-                head, word = os.path.split(word)
-                if word in (os.curdir, os.pardir, ''): continue
-                path = os.path.join(path, word)
-            zf.extract(member, path)
+    # @note path traversal vulnerability in extractall has been fixed as of Python 2.7.4
+    zipfile.ZipFile(source_filename).extractall(dest_dir)
 
 # @see http://stackoverflow.com/q/4028697
 def dlfile(url, filename = ''):
