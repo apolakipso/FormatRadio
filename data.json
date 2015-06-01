@@ -316,7 +316,9 @@
             "key": "answer-phone",
             "name": "Answer Phone Card 1 (1.4GB)",
             "url": "http://www.oomst.com/thonk/3rd-Party/AnswerPhoneCard1.zip",
-            "source": "http://answer-phone.org/"
+            "source": "http://answer-phone.org/",
+            "path": "/OrganizedCard/",
+            "mode": "convertOnly"
         }
     ]
 }
