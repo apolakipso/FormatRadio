@@ -247,6 +247,8 @@ def main():
 
     printStep('Set contains %d files' % filesInSet)
 
+    os.system("mkdir -p %s/%s-%d" % (targetFolder, key, currentVolume))
+
     writeSettings("%s/%s-%d/%s" % (targetFolder, key, currentVolume, SETTINGS_FILE), settings)
     path = getPath(targetFolder, key, currentVolume, currentFolder)
 
@@ -293,7 +295,7 @@ def main():
                 currentFolder = 0
                 currentFile = 0
                 path = getPath(targetFolder, key, currentVolume, currentFolder)
-                writeSettings("%s/%s-%d/" % (targetFolder, key, currentVolume), settings)
+                writeSettings("%s/%s-%d/%s" % (targetFolder, key, currentVolume, SETTINGS_FILE), settings)
 
         else:
             currentFile = 0
@@ -306,7 +308,7 @@ def main():
                 currentFile = 0
 
             path = getPath(targetFolder, key, currentVolume, currentFolder)
-            writeSettings("%s/%s-%d/" % (targetFolder, key, currentVolume), settings)
+            writeSettings("%s/%s-%d/%s" % (targetFolder, key, currentVolume, SETTINGS_FILE), settings)
 
     printStatus('Created %d volumes here: %s' % (currentVolume + 1, targetFolder))
     #for i in range(0, currentVolume + 1):
