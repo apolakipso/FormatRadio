@@ -4,7 +4,8 @@
     "maxFolders": 16,
     "maxFilesPerFolder": 75,
     "overwriteConvertedFiles": true,
-    "mode": "spreadAcrossVolumes",
+    "mode": "voltOctish",
+    "localSource": "./input/",
     "profiles": [
         {
             "_name": "default",

@@ -7,8 +7,10 @@ import zipfile
 import fnmatch
 from urllib2 import urlopen, URLError, HTTPError
 
+
+
 EXT_RAW = '.RAW'
-EXT_WAV = '.WAV'
+EXT_OTHER = ['.WAV','.AIF','.MP3','.MP4','.OGG','.M4A']
 SETTINGS_FILE = 'settings.txt'
 
 # @see http://stackoverflow.com/a/12886818
@@ -38,6 +40,7 @@ def findFiles(path, extensions):
     matches = []
     for root, dirnames, filenames in os.walk(path, topdown = False):
         for filename in filenames:
+            print filename
             name, ext = os.path.splitext(filename)
             if (ext.upper() in extensions):
                 p = os.path.join(root, filename)
@@ -56,13 +59,28 @@ def printStatus(s):
 def printStep(s):
     print '>>> %s' % s
 
+def printSetLocalOnline(options):
+    i = 0
+    hr()
+    for item in options:
+        print '[%d] %s' % (i, item)
+        i += 1
+    printStatus('Select if content is local or to be downloaded [0..%d]' % (len(options)-1))
+
+def printSetLocalDir():
+    hr()
+    printStatus('Enter the name of the folder to be created')
+
+def printDupLocalDir():
+    hr()
+    printStatus('This folder already exists. Proceed anyway? \n!!! Doing so WILL overwrite previous data and mix things up !!!\nType Y or N')
+
 def printSetMenu(sets):
     i = 0
     hr()
     for s in sets:
         print '[%d] %s' % (i, s['name'])
         i += 1
-
     printStatus('Select sample set [0..%d]' % (len(sets)-1))
 
 def printProfileMenu(profiles):
@@ -93,6 +111,16 @@ def getInput():
         return None
     return n
 
+def getInputString():
+    n = raw_input()
+    try:
+        n = str(n)
+    except ValueError:
+        exit('Invalid selection "%s"' % n)
+        #printStatus('Invalid selection "%s"' % n)
+        return None
+    return n
+
 def selectProfile(profiles):
     printProfileMenu(profiles)
     n = getInput()
@@ -116,6 +144,41 @@ def getProfile(profiles, whichProfile = None):
     profile.update(profiles[whichProfile])
     del profile['_name']
     return profile
+
+def selectLocalOnline(localOnline):
+    printSetLocalOnline(localOnline)
+    n = getInput()
+    if not n in range(0, len(localOnline)):
+        exit('Invalid profile "%d"' % n)
+        return
+    return n
+
+def getLocalOnline(localOnline, whichLocalOnline):
+    if (whichLocalOnline == None):
+        whichLocalOnline = selectLocalOnline(localOnline)
+    return localOnline[whichLocalOnline]
+
+def selectLocalDir():
+    printSetLocalDir()
+    n = getInputString()
+    return n
+
+def getLocalDir(whichLocalDir):
+    if (whichLocalDir == None):
+        whichLocalDir = selectLocalDir()
+    return whichLocalDir
+
+def selectDupLocalDir():
+    printDupLocalDir()
+    n = getInputString()
+    if not n in ["Y", "N", "y", "n"]:
+        exit('Invalid input "%d"' % n)
+        return
+    return n
+
+def getDupLocalDir():
+    goAhead = selectDupLocalDir()
+    return goAhead
 
 def selectSet(sets):
     printSetMenu(sets)
@@ -152,6 +215,7 @@ def setExtension(filename, extension):
     return name + extension
 
 def main():
+
     config = loadConfig('config.json')
     profiles = config['profiles']
 
@@ -164,39 +228,62 @@ def main():
     overwriteConvertedFiles = config['overwriteConvertedFiles']
     mode = config['mode']
 
-    # load set data
-    sets = json.loads(open('data.json').read())['sets']
-    # select a set
-    s = getSet(sets, int(sys.argv[2]) if len(sys.argv) > 2 else None)
+    # select if local or online content
+    localOnlineOptions = ["Local", "Online"]
+    localOnline = getLocalOnline(localOnlineOptions, int(sys.argv[3]) if len(sys.argv) > 3 else None)
 
-    url = s['url']
-    name = s['name']
-    key = s['key']
-    sourceFolder = rootFolder + key + "/source"
-    targetFolder = rootFolder + key # + "/target"
-    archive = "%s/%s.zip" % (sourceFolder, key)
+    if localOnline == "Local":
+        localDir = getLocalDir(int(sys.argv[4]) if len(sys.argv) > 4 else None)
+        sourceFolder = config['localSource']
+        targetFolder = os.path.join(rootFolder, localDir)
+        key = localDir
 
-    if not os.path.isdir(sourceFolder):
-        printStep('Creating source dir %s' % sourceFolder)
-        os.system("mkdir -p %s" % sourceFolder)
+        if not os.path.isdir(targetFolder):
+            printStep('Creating target dir %s' % targetFolder)
+            os.system("mkdir -p %s" % targetFolder)
+        else:
+            printStep('Skipping creating target dir, "%s" already exists' % targetFolder)
+            dupLocalDir = getDupLocalDir()
+            if dupLocalDir in ["Y", "y", "yes", "Yes"]:
+                printStep('Proceeding with existing folder, watch out for merged data!')
+            else:
+                exit("Process stopped, no new files created.")
 
-    if not os.path.isfile(archive):
-        printStep('Downloading "%s" from %s into "%s"' % (name, url, archive))
-        dlfile(url, archive)
-    else:
-        printStep('Skipping download, "%s" already exists' % archive)
+    elif localOnline == "Online":
+        #### These sets are to be used only if online content is desired
+        # load set data
+        sets = json.loads(open('data.json').read())['sets']
+        # select a set
+        s = getSet(sets, int(sys.argv[2]) if len(sys.argv) > 2 else None)
 
-    if not os.path.isdir(targetFolder):
-        printStep('Creating target dir %s' % targetFolder)
-        os.system("mkdir -p %s" % targetFolder)
-    else:
-        printStep('Skipping creating target dir, "%s" already exists' % targetFolder)
+        url = s['url']
+        name = s['name']
+        key = s['key']
+        sourceFolder = rootFolder + key + "/source"
+        targetFolder = rootFolder + key # + "/target"
+        archive = "%s/%s.zip" % (sourceFolder, key)
 
-    printStep('Unzipping "%s"' % archive)
-    unzip(archive, sourceFolder)
+        if not os.path.isdir(sourceFolder):
+            printStep('Creating source dir %s' % sourceFolder)
+            os.system("mkdir -p %s" % sourceFolder)
 
-    if 'mode' in s:
-        mode = s['mode']
+        if not os.path.isfile(archive):
+            printStep('Downloading "%s" from %s into "%s"' % (name, url, archive))
+            dlfile(url, archive)
+        else:
+            printStep('Skipping download, "%s" already exists' % archive)
+
+        if not os.path.isdir(targetFolder):
+            printStep('Creating target dir %s' % targetFolder)
+            os.system("mkdir -p %s" % targetFolder)
+        else:
+            printStep('Skipping creating target dir, "%s" already exists' % targetFolder)
+
+        printStep('Unzipping "%s"' % archive)
+        unzip(archive, sourceFolder)
+
+        if 'mode' in s:
+            mode = s['mode']
 
     printStep('Mode: %s' % mode)
 
@@ -238,7 +325,7 @@ def main():
         printStep('Done.')
         return
 
-    files = findFiles(sourceFolder, [EXT_RAW, EXT_WAV])
+    files = findFiles(sourceFolder, [EXT_RAW] + [i for i in EXT_OTHER])
     filesInSet = len(files)
     currentVolume = 0
     currentFolder = 0
@@ -267,12 +354,13 @@ def main():
     printStep('Spreading %d files across %d folders, %d files each (using %d volumes)' % (filesInSet, maxFolders, maxFilesPerFolder, numVolumes))
 
     for f in files:
+        print f
         if currentFile < maxFilesPerFolder:
             baseName = os.path.basename(f)
             targetFile = "%s/%d.raw" % (path, currentFile)
             name, ext = os.path.splitext(f)
 
-            if (ext.upper() == EXT_WAV):
+            if (ext.upper() in EXT_OTHER):
                 # WAV file, convert
                 convertFile(f, targetFile, overwriteConvertedFiles)
                 # cmd = ["ffmpeg", "-i", pipes.quote(f), '-loglevel', 'quiet', '-y' if overwriteConvertedFiles else '', "-f", "s16le", "-ac", "1", "-ar", "44100", "-acodec", "pcm_s16le",  pipes.quote(targetFile)]
